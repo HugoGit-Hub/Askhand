@@ -1,4 +1,4 @@
-name: SonarCloud
+name: Continuous Integration
 
 on:
   push:
@@ -8,8 +8,7 @@ on:
     types: [opened, synchronize, reopened]
     
 jobs:
-  build:
-    name: Build and analyze
+  setup:
     runs-on: windows-latest
     steps:
       - name: Set up .NET SDK 7
@@ -51,7 +50,7 @@ jobs:
 
       - name: Install dotnet-coverage tool
         shell: powershell
-        run: dotnet tool install dotnet-coverage --global
+        run: dotnet tool install --global dotnet-coverage
 
       - name: Build and analyze
         env:
@@ -59,7 +58,9 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"HugoGit-Hub_Askhand" /o:"hugogit-hub" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"HugoGit-Hub_Askhand" /o:"hugogit-hub" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
+          dotnet restore
+          dotnet build --no-restore
+          dotnet test --no-build --verbosity normal
           dotnet-coverage collect "dotnet test .\AskHand.Test\AskHand.Test.csproj --no-build" -f xml -o "coverage.xml"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
