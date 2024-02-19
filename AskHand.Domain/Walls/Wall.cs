@@ -1,5 +1,6 @@
 ﻿using AskHand.Domain.Addresses;
 using AskHand.Domain.Levels;
+using System.Security.Claims;
 
 namespace AskHand.Domain.Walls;
 
@@ -14,6 +15,8 @@ public sealed class Wall : AggregateRoot<WallId>
     public bool IsPresent { get; }
 
     public Address Address { get; }
+
+    public ICollection<Claim> Claims { get; } = new List<Claim>();
 
     private Wall(
         WallId id,

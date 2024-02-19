@@ -3,6 +3,7 @@ using AskHand.Domain.Countries;
 using AskHand.Domain.Emails;
 using AskHand.Domain.Passwords;
 using AskHand.Domain.Skills;
+using System.Security.Claims;
 
 namespace AskHand.Domain.Users;
 
@@ -19,6 +20,8 @@ public sealed class User : AggregateRoot<UserId>
     public City City { get; }
 
     public Country Country { get; }
+
+    public ICollection<Claim> Claims { get; } = new List<Claim>();
 
     private User(
         UserId id,
