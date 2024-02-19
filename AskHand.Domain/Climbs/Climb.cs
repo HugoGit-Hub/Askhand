@@ -10,9 +10,9 @@ public sealed class Climb : Entity<ClimbId>
 
     public double ValidationRate { get; }
 
-    public ICollection<User> Users { get; } = new List<User>();
+    public User User { get; } = null!;
 
-    public ICollection<Wall> Walls { get; } = new List<Wall>();
+    public Wall Wall { get; } = null!;
 
     public Climb(ClimbId id,
         double estimationTime,
