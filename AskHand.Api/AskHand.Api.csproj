@@ -17,4 +17,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AskHand.Application\AskHand.Application.csproj" />
+  </ItemGroup>
+
 </Project>
