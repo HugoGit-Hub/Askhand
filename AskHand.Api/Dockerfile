@@ -9,7 +9,10 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["AskHand.Api/AskHand.Api.csproj", "AskHand.Api/"]
 RUN dotnet restore "./AskHand.Api/AskHand.Api.csproj"
-COPY ./ .
+COPY ./AskHand.Api .
+COPY ./AskHand.Application .
+COPY ./AskHand.Domain .
+COPY ./AskHand.Infrastructure .
 WORKDIR "/src/AskHand.Api"
 RUN dotnet build "./AskHand.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
