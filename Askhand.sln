@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskHand.Application", "AskH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskHand.Infrastructure", "AskHand.Infrastructure\AskHand.Infrastructure.csproj", "{3DD58863-5C28-4399-AB29-664DF4F4FE5E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskHand.Api", "AskHand.Api\AskHand.Api.csproj", "{DE8C7AF2-FBB2-40C4-90C5-5BF8B93FC48C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{3DD58863-5C28-4399-AB29-664DF4F4FE5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DD58863-5C28-4399-AB29-664DF4F4FE5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DD58863-5C28-4399-AB29-664DF4F4FE5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE8C7AF2-FBB2-40C4-90C5-5BF8B93FC48C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8C7AF2-FBB2-40C4-90C5-5BF8B93FC48C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8C7AF2-FBB2-40C4-90C5-5BF8B93FC48C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8C7AF2-FBB2-40C4-90C5-5BF8B93FC48C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
