@@ -1,0 +1,6 @@
+@AskHand.Api_HostAddress = http://localhost:5118
+
+GET {{AskHand.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
