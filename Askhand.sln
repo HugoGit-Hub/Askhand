@@ -5,7 +5,9 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AskHand.Test", "AskHand.Test\AskHand.Test.csproj", "{D590A0CE-0152-43A4-8E54-30FDEA6212A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskHand.Domain", "AskHand.Domain\AskHand.Domain.csproj", "{C33A37B1-4BA2-45BB-AE3C-589E5B64E65A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AskHand.Domain", "AskHand.Domain\AskHand.Domain.csproj", "{C33A37B1-4BA2-45BB-AE3C-589E5B64E65A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AskHand.Application", "AskHand.Application\AskHand.Application.csproj", "{A944D59B-C742-4BB7-B53C-79760C7680FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C33A37B1-4BA2-45BB-AE3C-589E5B64E65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C33A37B1-4BA2-45BB-AE3C-589E5B64E65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C33A37B1-4BA2-45BB-AE3C-589E5B64E65A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A944D59B-C742-4BB7-B53C-79760C7680FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A944D59B-C742-4BB7-B53C-79760C7680FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A944D59B-C742-4BB7-B53C-79760C7680FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A944D59B-C742-4BB7-B53C-79760C7680FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
