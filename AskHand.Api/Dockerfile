@@ -14,11 +14,11 @@ COPY ./AskHand.Application .
 COPY ./AskHand.Domain .
 COPY ./AskHand.Infrastructure .
 WORKDIR "/src/AskHand.Api"
-RUN dotnet build "./AskHand.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./AskHand.Api.csproj" -c "$BUILD_CONFIGURATION" -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./AskHand.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./AskHand.Api.csproj" -c "$BUILD_CONFIGURATION" -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
