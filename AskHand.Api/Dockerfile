@@ -1,5 +1,3 @@
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 USER app
 WORKDIR /app
@@ -11,7 +9,10 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["AskHand.Api/AskHand.Api.csproj", "AskHand.Api/"]
 RUN dotnet restore "./AskHand.Api/AskHand.Api.csproj"
-COPY . .
+COPY ./AskHand.Api .
+COPY ./AskHand.Application .
+COPY ./AskHand.Domain .
+COPY ./AskHand.Infrastructure .
 WORKDIR "/src/AskHand.Api"
 RUN dotnet build "./AskHand.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
@@ -22,4 +23,5 @@ RUN dotnet publish "./AskHand.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publis
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+USER app
 ENTRYPOINT ["dotnet", "AskHand.Api.dll"]
