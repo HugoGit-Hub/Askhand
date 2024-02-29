@@ -62,5 +62,5 @@ jobs:
           dotnet restore
           dotnet build --no-restore
           dotnet test --no-build --verbosity normal
-          dotnet-coverage collect "dotnet test .\AskHand.Test\AskHand.Test.csproj --no-build" -f xml -o "coverage.xml"
+          dotnet-coverage collect "dotnet test .\src\AskHand.Test\AskHand.Test.csproj --no-build" -f xml -o "coverage.xml"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
