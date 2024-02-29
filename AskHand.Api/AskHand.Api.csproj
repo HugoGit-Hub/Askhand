@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AskHand.Application\AskHand.Application.csproj" />
+    <ProjectReference Include="..\AskHand.Infrastructure\AskHand.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
