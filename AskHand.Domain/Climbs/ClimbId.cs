@@ -13,6 +13,11 @@ public sealed class ClimbId : ValueObject
     {
         return new ClimbId(Guid.NewGuid());
     }
+    
+    public static ClimbId Create(Guid value)
+    {
+        return new ClimbId(value);
+    }
 
     public override IEnumerable<object> GetEqualityComponents()
     {
