@@ -17,6 +17,9 @@ public sealed class Wall : AggregateRoot<WallId>
     public Address Address { get; }
 
     public ICollection<Claim> Claims { get; } = new List<Claim>();
+    #pragma warning disable CS8618
+    #pragma warning disable IDE0051
+    private Wall(WallId id) : base(id) { }
 
     private Wall(
         WallId id,
