@@ -27,4 +27,19 @@ public class WallIdTest
         // Assert
         Assert.False(result);
     }
+
+    [Fact]
+    public void Create_ShouldReturnWallId_WithSameGuidValue()
+    {
+        // Arrange
+        var guid = Guid.NewGuid();
+
+        // Act
+        var wallId = WallId.Create(guid);
+
+        // Assert
+        Assert.NotNull(wallId);
+        Assert.IsType<WallId>(wallId);
+        Assert.Equal(guid, wallId.Value);
+    }
 }
