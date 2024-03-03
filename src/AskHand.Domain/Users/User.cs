@@ -23,6 +23,10 @@ public sealed class User : AggregateRoot<UserId>
 
     public ICollection<Climb> Climbs { get; } = [];
 
+    #pragma warning disable CS8618
+    #pragma warning disable IDE0051
+    private User(UserId id) : base(id) { }
+
     private User(
         UserId id,
         Email email,

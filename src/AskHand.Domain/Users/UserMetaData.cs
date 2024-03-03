@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AskHand.Domain.Users;
 
-public readonly record struct UserMetaData
+public sealed class UserMetaData : ValueObject
 {
     [MaxLength(25)]
     public string FirstName { get; }
@@ -29,5 +29,13 @@ public readonly record struct UserMetaData
         LastName = lastName;
         Age = age;
         PictureProfilPath = pictureProfilPath;
+    }
+
+    public override IEnumerable<object> GetEqualityComponents()
+    {
+        yield return FirstName;
+        yield return LastName;
+        yield return Age;
+        yield return PictureProfilPath;
     }
 }

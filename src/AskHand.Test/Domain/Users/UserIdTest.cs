@@ -41,4 +41,19 @@ public class UserIdTest
         // Assert
         Assert.False(result);
     }
+
+    [Fact]
+    public void Create_ShouldReturnUserId_WhenCalledWithValidGuid()
+    {
+        // Arrange
+        var guid = Guid.NewGuid();
+
+        // Act
+        var userId = UserId.Create(guid);
+
+        // Assert
+        Assert.NotNull(userId);
+        Assert.IsType<UserId>(userId);
+        Assert.Equal(guid, userId.Value);
+    }
 }
