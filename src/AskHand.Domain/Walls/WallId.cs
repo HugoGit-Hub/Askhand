@@ -13,6 +13,11 @@ public sealed class WallId : ValueObject
     {
         return new WallId(Guid.NewGuid());
     }
+    
+    public static WallId Create(Guid value)
+    {
+        return new WallId(value);
+    }
 
     public override IEnumerable<object> GetEqualityComponents()
     {

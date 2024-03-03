@@ -21,6 +21,9 @@ public sealed partial class Address : ValueObject
 
     public Country Country { get; }
 
+    #pragma warning disable CS8618
+    private Address() { }
+
     private Address(
         string number,
         string street,
