@@ -37,4 +37,26 @@ public class UserMetaDataTest
         // Act & Assert
         Assert.Throws<UserMetaDataFormatException>(() => new UserMetaData(firstName, lastName, age, pictureProfilPath));
     }
+
+    [Fact]
+    public void GetEqualityComponents_ShouldReturnAllProperties()
+    {
+        // Arrange
+        const string firstName = "John";
+        const string lastName = "Doe";
+        const int age = 25;
+        const string pictureProfilPath = "/path/to/profile/pic";
+        var userMetaData = new UserMetaData(firstName, lastName, age, pictureProfilPath);
+
+        // Act
+        var components = userMetaData.GetEqualityComponents().ToList();
+
+        // Assert
+        Assert.Equal(4, components.Count);
+        Assert.Equal(firstName, components[0]);
+        Assert.Equal(lastName, components[1]);
+        Assert.Equal(age, components[2]);
+        Assert.Equal(pictureProfilPath, components[3]);
+    }
+
 }
