@@ -1,6 +1,6 @@
 ﻿using AskHand.Domain.Addresses;
+using AskHand.Domain.Climbs;
 using AskHand.Domain.Levels;
-using System.Security.Claims;
 
 namespace AskHand.Domain.Walls;
 
@@ -16,7 +16,8 @@ public sealed class Wall : AggregateRoot<WallId>
 
     public Address Address { get; }
 
-    public ICollection<Claim> Claims { get; } = new List<Claim>();
+    public ICollection<Climb> Climbs { get; } = [];
+
     #pragma warning disable CS8618
     #pragma warning disable IDE0051
     private Wall(WallId id) : base(id) { }
