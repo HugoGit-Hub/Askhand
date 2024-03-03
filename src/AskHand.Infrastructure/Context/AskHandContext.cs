@@ -1,4 +1,5 @@
 ﻿using AskHand.Domain.Climbs;
+using AskHand.Domain.Users;
 using AskHand.Domain.Walls;
 using AskHand.Infrastructure.Context.Configurations;
 using Microsoft.EntityFrameworkCore;
@@ -9,11 +10,14 @@ public class AskHandContext(DbContextOptions<AskHandContext> options) : DbContex
 {
     public DbSet<Climb> Climbs { get; set; } = null!;
 
+    public DbSet<User> Users { get; set; } = null!;
+
     public DbSet<Wall> Walls { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         new ClimbConfiguration().Configure(modelBuilder.Entity<Climb>());
+        new UserConfiguration().Configure(modelBuilder.Entity<User>());
         new WallConfiguration().Configure(modelBuilder.Entity<Wall>());
     }
 };
