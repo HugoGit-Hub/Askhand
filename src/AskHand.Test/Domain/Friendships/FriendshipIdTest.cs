@@ -14,6 +14,20 @@ public class FriendshipIdTest
         Assert.NotNull(friendshipId);
         Assert.IsType<FriendshipId>(friendshipId);
     }
+    
+    [Fact]
+    public void Create_ShouldReturnFriendshipId_WhenCalled()
+    {
+        // Arrange
+        var guid = Guid.NewGuid();
+
+        // Act
+        var friendshipId = FriendshipId.Create(guid);
+
+        // Assert
+        Assert.NotNull(friendshipId);
+        Assert.IsType<FriendshipId>(friendshipId);
+    }
 
     [Fact]
     public void GetEqualityComponents_ShouldReturnEqual_WhenSameFriendshipIdProvided()
@@ -41,5 +55,4 @@ public class FriendshipIdTest
         // Assert
         Assert.False(result);
     }
-
 }
