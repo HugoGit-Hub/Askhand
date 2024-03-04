@@ -12,12 +12,20 @@ public sealed class Friendship : Entity<FriendshipId>
 
     public DateTime? EndFriendshipDate { get; }
 
+    public User UserOne { get; } = null!;
+
+    public User UserTwo { get; } = null!;
+
+    #pragma warning disable CS8618
+    #pragma warning disable IDE0051
+    private Friendship(FriendshipId id) : base(id) { }
+
     private Friendship(
         FriendshipId id,
         UserId userIdOne,
         UserId userIdTwo, 
         DateTime startFriendshipDate, 
-        DateTime endFriendshipDate) 
+        DateTime? endFriendshipDate) 
         : base(id)
     {
         UserIdOne = userIdOne;
@@ -30,7 +38,7 @@ public sealed class Friendship : Entity<FriendshipId>
         UserId userIdOne, 
         UserId userIdTwo, 
         DateTime startFriendshipDate, 
-        DateTime endFriendshipDate)
+        DateTime? endFriendshipDate)
     {
         return new Friendship(
             FriendshipId.CreateUnique(), 
